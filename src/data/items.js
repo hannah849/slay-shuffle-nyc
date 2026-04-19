@@ -15,6 +15,7 @@ export const items = {
     { name: 'Cin Cin Sweatshirt', image: '/items/cin cin sweatshirt.png' },
     { name: 'Grazie Sweatshirt', image: '/items/c590e1ff-69ba-403b-b77e-2e287e0b30fe.png' },
     { name: 'Striped Sweater', image: '/items/striped sweater.png' },
+    { name: 'White Tee', image: '/items/white tee.png' },
   ],
   bottom: [
     { name: 'Black Pant', image: '/items/black pant.png' },
