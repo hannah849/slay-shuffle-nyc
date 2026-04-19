@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #faf9f7;
+  color: #1a1a1a;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 36px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #bbb;
+  margin-top: 4px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* Generate button */
+.generate-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 12px 40px;
+  border: none;
+  border-radius: 50px;
+  background: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 24px;
+}
+
+.generate-btn:hover:not(:disabled) {
+  background: #333;
+  transform: scale(1.02);
+}
+
+.generate-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.generate-btn.generating {
+  background: #666;
+  cursor: wait;
+}
+
+/* 2x3 grid */
+.outfit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Slot item */
+.slot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.slot-label {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+
+.slot-image-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.slot-image-wrap:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.slot-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  user-select: none;
+  transition: opacity 0.05s ease;
+}
+
+.spinning .slot-image {
+  opacity: 0.6;
+}
+
+.slot-item.landed .slot-image-wrap {
+  animation: softPop 0.25s ease;
+}
+
+@keyframes softPop {
+  0% { transform: scale(0.96); }
+  60% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.slot-name {
+  font-size: 10px;
+  font-weight: 500;
+  color: #999;
+  margin-top: 5px;
+  text-align: center;
+  min-height: 14px;
+  line-height: 1.2;
+}
+
+.swap-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #bbb;
+  background: none;
+  border: none;
+  padding: 3px 8px;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  letter-spacing: 0.3px;
+}
+
+.swap-btn:hover:not(:disabled) {
+  color: #1a1a1a;
+}
+
+.swap-btn:disabled {
+  opacity: 0.3;
+  cursor: wait;
+}
+
+/* Empty slot placeholder */
+.slot-empty .slot-image-wrap {
+  border: 2px dashed #e0ddd8;
+  background: transparent;
+}
+
+.empty-label {
+  font-size: 11px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+@media (max-width: 380px) {
+  .app {
+    padding: 28px 10px 32px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 600px) {
+  .app {
+    padding-top: 52px;
+    max-width: 480px;
+  }
+
+  .header h1 {
+    font-size: 34px;
+  }
+
+  .outfit-grid {
+    gap: 12px;
+  }
+
+  .slot-image-wrap {
+    padding: 14px;
+    border-radius: 14px;
+  }
+}
